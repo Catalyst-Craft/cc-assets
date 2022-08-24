@@ -1,0 +1,228 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+html, body {
+  overflow: hidden;
+  font-family: Montserrat;
+}
+
+.background {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: hidden;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  height: 130vh;
+  position: fixed;
+  width: 100%;
+  transform: translateY(30vh);
+  transition: all 1.2s cubic-bezier(0.22, 0.44, 0, 1);
+  scroll-behavior: smooth;
+}
+.background:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.background:first-child {
+  background-image: url(pictures/minecraft-shaders/survival/2022-04-19_17.41.21.png);
+  transform: translateY(-15vh);
+}
+.background:first-child .content-wrapper {
+  transform: translateY(15vh);
+}
+.background:nth-child(2) {
+  background-image: url(pictures/minecraft-shaders/survival/2022-04-19_18.00.32.png);
+}
+.background:nth-child(3) {
+  background-image: url(pictures/minecraft-shaders/hardcore/2022-04-19_22.25.01.png);
+}
+
+.background:nth-child(4) {
+  background-image: url(pictures/minecraft-shaders/survival/2022-04-19_17.51.58.png);
+}
+
+/* Set stacking context of slides */
+.background:nth-child(1) {
+  z-index: 4;
+}
+
+.background:nth-child(2) {
+  z-index: 3;
+}
+
+.background:nth-child(3) {
+  z-index: 2;
+}
+
+.background:nth-child(4) {
+  z-index: 1;
+}
+
+.content-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-flow: column nowrap;
+  color: #fff;
+  text-transform: uppercase;
+  transform: translateY(40vh);
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transition: all 1.7s cubic-bezier(0.22, 0.44, 0, 1);
+}
+.content-title {
+  font-size: 12vh;
+  line-height: 1.4;
+}
+
+.content-subtitle {
+  font-size: 2.5vh;
+  line-height: 1.4;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.background.up-scroll {
+  transform: translate3d(0, -15vh, 0);
+}
+.background.up-scroll .content-wrapper {
+  transform: translateY(15vh);
+}
+.background.up-scroll + .background {
+  transform: translate3d(0, 30vh, 0);
+}
+.background.up-scroll + .background .content-wrapper {
+  transform: translateY(30vh);
+}
+
+.background.down-scroll {
+  transform: translate3d(0, -130vh, 0);
+}
+.background.down-scroll .content-wrapper {
+  transform: translateY(40vh);
+}
+.background.down-scroll + .background:not(.down-scroll) {
+  transform: translate3d(0, -15vh, 0);
+}
+.background.down-scroll + .background:not(.down-scroll) .content-wrapper {
+  transform: translateY(15vh);
+}
+
+.arrows {
+	width: 60px;
+	height: 72px;
+	position: absolute;
+	left: 50%;
+	margin-left: -30px;
+	bottom: 20px;
+}
+
+.arrows path {
+	stroke: #2994D1;
+	fill: transparent;
+	stroke-width: 1px;
+	animation: arrow 2s infinite;
+	-webkit-animation: arrow 2s infinite;
+}
+
+@keyframes arrow
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+@-webkit-keyframes arrow /*Safari and Chrome*/
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+.arrows path.a1 {
+	animation-delay:-1s;
+	-webkit-animation-delay:-1s; /* Safari 和 Chrome */
+}
+
+.arrows path.a2 {
+	animation-delay:-0.5s;
+	-webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+}
+
+.arrows path.a3 {
+	animation-delay:0s;
+	-webkit-animation-delay:0s; /* Safari 和 Chrome */
+}
+
+.vl {
+  border-left: .5vh solid #fff;
+  height: 4vh;
+}
+
+/* Style the navbar */
+.navbar {
+  overflow: hidden;
+  font-size: 2.7vh;
+}
+
+
+/* Navbar links */
+.navbar a {
+  float: right;
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 1.3%;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.navbar a:hover {
+  color: #2994D1;
+  transition: .3s;
+}
+
+.navbar span {
+  color: #fff;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.navbar span:hover {
+  color: #2994D1;
+  transition: .3s;
+}
+
+.navbar p {
+  color: #fff;
+  display: block;
+  text-align: center;
+  float: left;
+  padding: 1.3%;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.navbar p:hover {
+  color: #2994D1;
+  transition: .3s;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
